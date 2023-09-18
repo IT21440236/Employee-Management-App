@@ -1,15 +1,44 @@
 package com.ykods.employeemanagement.model;
 
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import java.io.Serializable;
 
+@Entity
+@AllArgsConstructor
+@NoArgsConstructor
+@Data
 public class Employee implements Serializable {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(nullable = false, updatable = false)
     private Long id;
     private String name;
     private String email;
     private String jobTitle;
     private String phone;
     private String imageUrl;
+    @Column(nullable = false, updatable = false)
     private String employeeCode;
+
+
+
+     //In case I want to print this out;
+//    @Override
+//    public String toString() {
+//        return "Employee{" +
+//                "id=" + id +
+//                ", name='" + name + '\'' +
+//                ", email='" + email + '\'' +
+//                ", jobTitle='" + jobTitle + '\'' +
+//                ", phone='" + phone + '\'' +
+//                ", imageUrl='" + imageUrl + '\'' +
+//                ", employeeCode='" + employeeCode + '\'' +
+//                '}';
+//    }
 }
 
 
